@@ -1,0 +1,102 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title></title>
+ 	<style>
+fieldset {
+  background-color: #eeeeee;
+  width: 600px;
+  margin-left: 400px;
+}
+
+legend {
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+}
+
+input {
+  margin: 5px;
+}
+</style>
+
+ 	<script type="text/javascript">
+ 		function floorArea(){
+ 			value1=parseInt(document.main.textBox1.value);
+ 			value2=parseInt(document.main.textBox2.value);
+ 			value3=parseInt(document.main.textBox3.value);
+ 			value4=parseInt(document.main.textBox4.value);
+ 			value5=parseInt(document.main.textBox5.value);
+
+
+ 			roomArea= value1*value2;
+ 			floorArea= value3**2;
+ 			wallArea=value4*value5;
+ 			
+ 			
+ 			if(document.getElementById('floor').checked){
+ 				forFloor=roomArea/floorArea;
+ 				show=forFloor + forFloor*0.05;
+ 				result=Math.ceil(show);
+ 				alert(result);
+ 			}
+ 			else if(document.getElementById('wall').checked){
+ 				changeWall=wallArea*12;
+ 				forWall=roomArea/changeWall;
+ 				showWall=forWall + forWall*0.05;
+ 				resultWall=Math.ceil(showWall);
+ 				alert(resultWall);
+ 			}
+ 		}
+
+ 		function display(){
+ 			if(document.getElementById('floor').checked){
+ 				document.getElementById('w').style.display = 'none';
+ 				document.getElementById('f').style.display = 'block';
+ 				
+ 			}
+ 			if(document.getElementById('wall').checked){
+ 				document.getElementById('w').style.display = 'block';
+ 				document.getElementById('f').style.display = 'none';
+ 			}
+ 		}
+
+ 			
+ 	</script>
+ </head>
+ <body>
+ 	<h2 align="center">Tile & Wall Decoration Calculator</h2>
+ 	<form name="main">
+ 		<fieldset >
+ 		<legend>For Room Area</legend>
+ 		<label>Enter Room Length: </label>
+ 		<input type="text" name="textBox1"> <br><br>
+ 		<label>Enter Room Width: </label>
+ 		<input type="text" name="textBox2"> <br>
+ 		</fieldset>
+ 		<br><br>
+ 		<fieldset>
+ 		<legend>For Floor & Wall</legend>
+ 		<label>Floor: </label>
+ 		<input type="radio" id="floor" name="ch" value="Floor" checked="checked" onclick="display()">
+ 		<label>Wall: </label>
+ 		<input type="radio" id="wall" name="ch" value="Wall" onclick="display()">
+ 		<br><br>
+ 		<div id="f" style="display: block">
+ 		<label>Floor Width & Length: </label>
+ 		<input type="text" name="textBox3"><br>
+ 		</div>
+ 		<div id="w" style="display: none">
+ 		<label>Wall Length: </label>
+ 		<input type="text" name="textBox4">
+ 		<br>
+ 		<label>Wall Width: </label>
+ 		<input type="text" name="textBox5" id="t5">
+ 		<br>
+ 		</div>
+ 		<input type="button" value="Calculate" onclick="floorArea()">
+ 		</fieldset>
+ 	</form>
+ 		
+ </body>
+ </html>

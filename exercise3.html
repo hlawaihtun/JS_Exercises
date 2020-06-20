@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guess the Number</title>
+	<script type="text/javascript">
+		let correctNum = Math.floor((Math.random() * 20) + 1);
+		let isCorrect = false;
+		let i = 1;
+		do
+		{
+			let guessNum = prompt("Guess the Number between 1 to 20: ");
+			
+			if(correctNum == guessNum){
+				isCorrect=true;
+				alert("Correct!"+ "Your guess "+ i + "  time");
+			}else if(correctNum<guessNum){
+				alert('Higher');			
+			}else if(correctNum>guessNum) {
+				alert('Lower')
+			}
+			i++
+		}while(!isCorrect)
+	</script>
+</head>
+<body>
+
+</body>
+</html>
